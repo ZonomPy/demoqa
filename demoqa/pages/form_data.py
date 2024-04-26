@@ -27,41 +27,37 @@ class FormData(Base):
         self.faker = Faker()
 
     ## Getters
-    def get_full_name(self):
+
+    def wait_and_get_element(self, locator):
         return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.full_name)))
+            EC.element_to_be_clickable((By.XPATH, locator)))
+
+    def get_full_name(self):
+        return self.wait_and_get_element(Locators.full_name)
 
     def get_email(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.email)))
+        return self.wait_and_get_element(Locators.email)
 
     def get_current_address(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.current_address)))
+        return self.wait_and_get_element(Locators.current_address)
 
     def get_permanent_address(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.permanent_address)))
+        return self.wait_and_get_element(Locators.permanent_address)
 
     def get_submit_button(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.submit_button)))
+        return self.wait_and_get_element(Locators.submit_button)
 
     def get_result_full_name(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.result_full_name)))
+        return self.wait_and_get_element(Locators.result_full_name)
 
     def get_result_email(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.result_email)))
+        return self.wait_and_get_element(Locators.result_email)
 
     def get_result_cur_address(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.result_cur_address)))
+        return self.wait_and_get_element(Locators.result_cur_address)
 
     def get_result_per_address(self):
-        return WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, Locators.result_per_address)))
+        return self.wait_and_get_element(Locators.result_per_address)
 
     ## Actions
     def get_full_name_text(self):
@@ -112,9 +108,6 @@ class FormData(Base):
         self.check_word(self.get_email_text(), entered_email)
         self.check_word(self.get_cur_address_text(), entered_current_address)
         self.check_word(self.get_per_address_text(), entered_permanent_address)
-
-
-
 
     def negative(self):
         self.driver.get(self.url)

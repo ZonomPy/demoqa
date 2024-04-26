@@ -17,7 +17,7 @@ def test_forms_negative():
     fd = FormData(driver)
     fd.negative()
     print("Finish Test")
-    print("Негативный тест прошел успешон")
+    print("Негативный тест прошел успешно")
     driver.quit()
 
 
