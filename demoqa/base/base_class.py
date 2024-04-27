@@ -1,6 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
-
-
 class Base:
     def __init__(self, driver):
         self.driver = driver
