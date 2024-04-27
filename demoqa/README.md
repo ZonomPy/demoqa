@@ -14,6 +14,10 @@
 Вы можете установить их с помощью pip:
     pip install -r requirements.txt
 
+## Обновление Chrome drivera
+Для обновления драйвера необходимо ввести команду :
+pip install webdriver-manager --upgrade
+
 ## Запуск тестов
 
 Чтобы запустить тесты, необхлдимо выполните команду:
