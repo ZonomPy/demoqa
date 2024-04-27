@@ -19,7 +19,6 @@ class Locators:
 
 
 class FormData(Base):
-    url = 'https://demoqa.com/text-box'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -92,8 +91,6 @@ class FormData(Base):
         self.get_submit_button().click()
 
     def positive(self):
-        self.driver.get(self.url)
-        self.driver.maximize_window()
         entered_full_name = self.faker.first_name()
         entered_email = self.faker.email()
         entered_current_address = self.faker.street_address()
@@ -110,8 +107,6 @@ class FormData(Base):
         self.check_word(self.get_per_address_text(), entered_permanent_address)
 
     def negative(self):
-        self.driver.get(self.url)
-        self.driver.maximize_window()
         entered_full_name = self.faker.first_name()
         entered_email = self.faker.email()
         entered_current_address = self.faker.street_address()
